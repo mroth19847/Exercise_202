@@ -10,6 +10,7 @@ public class RadioGUI extends javax.swing.JFrame {
     
     public RadioGUI() {
         initComponents();
+        initTable();
         RadioTable.setModel(bl);
         bl.add(new Sender("Radio Steiermark", 99.3, "AM"));
         bl.add(new Sender("Ö3", 99.5, "FM"));
@@ -86,6 +87,7 @@ public class RadioGUI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btaddActionPerformed

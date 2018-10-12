@@ -5,7 +5,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class SenderTableModel extends AbstractTableModel{
 
-    private static String[] colNames = {"Sender","Frequenz"};
+    private static String[] colNames = {"Sender","Frequenz","Band"};
     private ArrayList<Sender> sender = new ArrayList<>();
     
     
