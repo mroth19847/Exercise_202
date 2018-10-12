@@ -1,22 +1,47 @@
 package bl;
 
+import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 public class SenderTableModel extends AbstractTableModel{
 
+    private static String[] colNames = {"Sender","Frequenz"};
+    private ArrayList<Sender> sender = new ArrayList<>();
+    
+    
+    public void addData(Sender s) {
+        sender.add(s);
+        fireTableDataChanged();
+    }
+    
+    public void hide() {
+        colNames = new String[]{"Sender","Frequenz"};
+        fireTableStructureChanged();
+    }
+    
+    public void show() {
+        colNames = new String[]{"Sender","Frequenz","Band"};
+        fireTableStructureChanged();
+    }
+    
     @Override
     public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return sender.size();
     }
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return colNames.length;
+    }
+    
+    @Override
+    public String getColumnName(int i) {
+        return colNames[i];
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return sender.get(rowIndex);
     }
     
 }
