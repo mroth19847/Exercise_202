@@ -79,12 +79,17 @@ public class SenderDlg extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Bitte füllen Sie alle Felder aus!");
         } else {
             try {
-                sender = new Sender(tfname.getText(),Double.parseDouble(tffrequence.getText()),tfband.getText());
+                double fr = Double.parseDouble(tffrequence.getText());
+                if (fr < 0 || fr > 999) {
+                    JOptionPane.showMessageDialog(null, "Die Frequenz ist nicht in der erlaubten Reichweite!");
+                } else {
+                    sender = new Sender(tfname.getText(), fr, tfband.getText());
+                    dispose();
+                }
             } catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(null, "Bitte achten Sie auf das korrekte Eingabeformat!");
             }
         }
-        dispose();
     }//GEN-LAST:event_btokActionPerformed
 
     private void btdenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btdenyActionPerformed
@@ -100,7 +105,6 @@ public class SenderDlg extends javax.swing.JDialog {
         return ok;
     }
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btdeny;

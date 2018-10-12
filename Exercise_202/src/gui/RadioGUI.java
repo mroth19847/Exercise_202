@@ -1,9 +1,14 @@
 package gui;
 
+import bl.SenderTableModel;
+
 public class RadioGUI extends javax.swing.JFrame {
 
+    private SenderTableModel bl = new SenderTableModel();
+    
     public RadioGUI() {
         initComponents();
+        RadioTable.setModel(bl);
     }
 
 
@@ -73,15 +78,19 @@ public class RadioGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btaddActionPerformed
-        // TODO add your handling code here:
+        SenderDlg dlg = new SenderDlg(this,true);
+        dlg.setVisible(true);
+        if(dlg.isOk()){
+            bl.add(dlg.getSender());
+        }
     }//GEN-LAST:event_btaddActionPerformed
 
     private void bthideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bthideActionPerformed
-        // TODO add your handling code here:
+        bl.hide();
     }//GEN-LAST:event_bthideActionPerformed
 
     private void btshowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btshowActionPerformed
-        // TODO add your handling code here:
+        bl.show();
     }//GEN-LAST:event_btshowActionPerformed
 
     /**

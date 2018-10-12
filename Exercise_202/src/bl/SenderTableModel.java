@@ -9,7 +9,7 @@ public class SenderTableModel extends AbstractTableModel{
     private ArrayList<Sender> sender = new ArrayList<>();
     
     
-    public void addData(Sender s) {
+    public void add(Sender s) {
         sender.add(s);
         fireTableDataChanged();
     }
