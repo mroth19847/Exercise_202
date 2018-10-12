@@ -1,6 +1,7 @@
 package gui;
 
 import bl.SenderTableModel;
+import bl.SenderTableRenderer;
 
 public class RadioGUI extends javax.swing.JFrame {
 
@@ -9,6 +10,7 @@ public class RadioGUI extends javax.swing.JFrame {
     public RadioGUI() {
         initComponents();
         RadioTable.setModel(bl);
+        RadioTable.setDefaultRenderer(Object.class, new SenderTableRenderer());
     }
 
 
