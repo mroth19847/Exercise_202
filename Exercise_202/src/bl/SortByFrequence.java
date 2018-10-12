@@ -2,7 +2,7 @@ package bl;
 
 import java.util.Comparator;
 
-public class SortByName implements Comparator<Sender>{
+public class SortByFrequence implements Comparator<Sender>{
 
     @Override
     public int compare(Sender o1, Sender o2) {

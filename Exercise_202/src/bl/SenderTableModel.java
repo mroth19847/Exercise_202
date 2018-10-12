@@ -12,9 +12,10 @@ public class SenderTableModel extends AbstractTableModel{
     
     public void add(Sender s) {
         sender.add(s);
-        Collections.sort(sender, new SortByName());
+        Collections.sort(sender, new SortByFrequence());
         fireTableDataChanged();
     }
+    
     
     public void hide() {
         colNames = new String[]{"Sender","Frequenz"};
@@ -23,10 +24,6 @@ public class SenderTableModel extends AbstractTableModel{
     
     public void show() {
         colNames = new String[]{"Sender","Frequenz","Band"};
-        fireTableStructureChanged();
-    }
-    
-    public void uptade(){
         fireTableStructureChanged();
     }
     
