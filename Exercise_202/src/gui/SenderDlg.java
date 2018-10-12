@@ -1,14 +1,17 @@
-
 package gui;
+
+import bl.Sender;
+import javax.swing.JOptionPane;
 
 public class SenderDlg extends javax.swing.JDialog {
 
+    private Sender sender;
+    private boolean ok;
 
     public SenderDlg(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -71,13 +74,33 @@ public class SenderDlg extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btokActionPerformed
-        // TODO add your handling code here:
+        ok = true;
+        if (tfname.getText().equals("") || tffrequence.getText().equals("") || tfband.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Bitte füllen Sie alle Felder aus!");
+        } else {
+            try {
+                sender = new Sender(tfname.getText(),Double.parseDouble(tffrequence.getText()),tfband.getText());
+            } catch (NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(null, "Bitte achten Sie auf das korrekte Eingabeformat!");
+            }
+        }
+        dispose();
     }//GEN-LAST:event_btokActionPerformed
 
     private void btdenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btdenyActionPerformed
-        // TODO add your handling code here:
+        ok = false;
+        dispose();
     }//GEN-LAST:event_btdenyActionPerformed
 
+    public Sender getSender() {
+        return sender;
+    }
+
+    public boolean isOk() {
+        return ok;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btdeny;
