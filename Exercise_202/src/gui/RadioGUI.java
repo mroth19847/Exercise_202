@@ -1,5 +1,6 @@
 package gui;
 
+import bl.Sender;
 import bl.SenderTableModel;
 import bl.SenderTableRenderer;
 
@@ -10,10 +11,18 @@ public class RadioGUI extends javax.swing.JFrame {
     public RadioGUI() {
         initComponents();
         RadioTable.setModel(bl);
+        bl.add(new Sender("Radio Steiermark", 99.3, "AM"));
+        bl.add(new Sender("Ö3", 99.5, "FM"));
+        bl.add(new Sender("NaturRadio", 100.5, "AM"));
         RadioTable.setDefaultRenderer(Object.class, new SenderTableRenderer());
     }
 
-
+    public void initTable(){
+        RadioTable.getColumnModel().getColumn(0).setWidth(150);
+        RadioTable.getColumnModel().getColumn(0).setWidth(120);
+        RadioTable.getColumnModel().getColumn(0).setWidth(50);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
