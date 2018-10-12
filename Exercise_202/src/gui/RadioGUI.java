@@ -20,8 +20,8 @@ public class RadioGUI extends javax.swing.JFrame {
 
     public void initTable(){
         RadioTable.getColumnModel().getColumn(0).setWidth(150);
-        RadioTable.getColumnModel().getColumn(0).setWidth(120);
-        RadioTable.getColumnModel().getColumn(0).setWidth(50);
+        RadioTable.getColumnModel().getColumn(1).setWidth(120);
+        RadioTable.getColumnModel().getColumn(2).setWidth(50);
     }
     
     @SuppressWarnings("unchecked")

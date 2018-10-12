@@ -1,6 +1,7 @@
 package bl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.table.AbstractTableModel;
 
 public class SenderTableModel extends AbstractTableModel{
@@ -11,6 +12,7 @@ public class SenderTableModel extends AbstractTableModel{
     
     public void add(Sender s) {
         sender.add(s);
+        Collections.sort(sender, new SortByName());
         fireTableDataChanged();
     }
     
@@ -21,6 +23,10 @@ public class SenderTableModel extends AbstractTableModel{
     
     public void show() {
         colNames = new String[]{"Sender","Frequenz","Band"};
+        fireTableStructureChanged();
+    }
+    
+    public void uptade(){
         fireTableStructureChanged();
     }
     
